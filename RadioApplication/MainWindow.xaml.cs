@@ -25,7 +25,7 @@ namespace RadioApplication
     {
         
 
-        private Queue<MediaElement> channels = new Queue<MediaElement>();
+        private ObservableCollection<MediaElement> channels = new ObservableCollection<MediaElement>();
 
         private Radio radio = new Radio();
 
@@ -34,39 +34,43 @@ namespace RadioApplication
 
             InitializeComponent();
 
-            channels.Enqueue(bbcOne);
-            channels.Enqueue(bbcTwo);
-            channels.Enqueue(bbcThree);
-            channels.Enqueue(bbcFour);
+            channels.Add(bbcOne);
+            channels.Add(bbcTwo);
+            channels.Add(bbcThree);
+            channels.Add(bbcFour);
+
         }
 
         private void btnBBCOne_Click(object sender, RoutedEventArgs e)
         {
+            channels.ElementAt(1).Stop();
+            channels.ElementAt(2).Stop();
+            channels.ElementAt(3).Stop();
             PowerButtonChecked(1, txtResult.Text);
-            channels.Peek().Stop();
-            bbcOne.Play();
-
         }
 
         private void btnBBCTwo_Click(object sender, RoutedEventArgs e)
         {
+            channels.ElementAt(0).Stop();
+            channels.ElementAt(2).Stop();
+            channels.ElementAt(3).Stop();
             PowerButtonChecked(2, txtResult.Text);
-            channels.Peek().Stop();
-            bbcTwo.Play();
         }
 
         private void btnBBCThree_Click(object sender, RoutedEventArgs e)
         {
+            channels.ElementAt(0).Stop();
+            channels.ElementAt(1).Stop();
+            channels.ElementAt(3).Stop();
             PowerButtonChecked(3, txtResult.Text);
-            channels.Peek().Stop();
-            bbcThree.Play();
         }
 
         private void btnBBCFour_Click(object sender, RoutedEventArgs e)
         {
+            channels.ElementAt(0).Stop();
+            channels.ElementAt(1).Stop();
+            channels.ElementAt(2).Stop();
             PowerButtonChecked(4, txtResult.Text);
-            channels.Peek().Stop();
-            bbcFour.Play();
         }
 
         private void HandleCheck(object sender, RoutedEventArgs e)
@@ -82,6 +86,7 @@ namespace RadioApplication
                 radio.Channel = channelNum;
                 radio.TurnOn();
                 txtResult.Text = radio.Play();
+                channels.ElementAt(channelNum - 1).Play();
             }
             else
             {

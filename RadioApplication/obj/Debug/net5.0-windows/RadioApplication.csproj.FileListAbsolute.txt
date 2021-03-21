@@ -42,3 +42,4 @@ C:\Users\Baratharun\Visual C#\Masterclass\Radio_Project\RadioApplication\obj\Deb
 C:\Users\Baratharun\Visual C#\Masterclass\Radio_Project\RadioApplication\obj\Debug\net5.0-windows\ref\RadioApplication.dll
 C:\Users\Baratharun\Visual C#\Masterclass\Radio_Project\RadioApplication\obj\Debug\net5.0-windows\RadioApplication.pdb
 C:\Users\Baratharun\Visual C#\Masterclass\Radio_Project\RadioApplication\obj\Debug\net5.0-windows\RadioApplication.genruntimeconfig.cache
+C:\Users\Baratharun\Visual C#\Masterclass\Radio_Project\RadioApplication\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs

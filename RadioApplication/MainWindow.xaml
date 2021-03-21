@@ -21,18 +21,14 @@
         <DockPanel Background="LightBlue" >
             <Label Content = "FM Radio" FontSize = "15" 
              FontWeight = "Bold" Grid.Column = "0" Grid.Row = "0"/>
-            <TextBlock Name="txtResult"  
-                   Text="Status"  
-                   FontSize="10"  
-                   VerticalAlignment="Center"  
-                   HorizontalAlignment="Center"  
-                   Grid.Column = "0"/>
+            <TextBlock Name="txtResult" Text="{Binding Title, UpdateSourceTrigger=Explicit}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontStyle="Italic" >
+            </TextBlock>
         </DockPanel>
 
         <StackPanel Background="Black" Margin="20,10,20,10" Grid.Column = "0" Grid.Row = "1">
             <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p" LoadedBehavior="Manual" Name="bbcOne" />
             <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p" LoadedBehavior="Manual" Name="bbcTwo" />
-            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p" LoadedBehavior="Manual" Name="bbcThree" />
+            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_asianet_mf_p" LoadedBehavior="Manual" Name="bbcThree" />
             <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p" LoadedBehavior="Manual" Name="bbcFour" />
         </StackPanel>
 

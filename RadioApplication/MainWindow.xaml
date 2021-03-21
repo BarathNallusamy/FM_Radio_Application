@@ -41,7 +41,7 @@
 
         <StackPanel  Margin="10,0,10,0" Grid.Column = "0" Grid.Row = "3" Orientation = "Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <TextBlock Text="Power:"  Margin="5" />
-            <RadioButton x:Name="ONButton" Margin="5" Checked="HandleCheck"
+            <RadioButton x:Name="ONButton" Margin="5"
             GroupName="First Group" Content="On" />
             <RadioButton x:Name="OFFButton" Margin="5" Checked="HandleCheck"
             GroupName="First Group" Content="Off" IsChecked="True"  />

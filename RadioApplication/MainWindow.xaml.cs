@@ -43,39 +43,36 @@ namespace RadioApplication
 
         private void btnBBCOne_Click(object sender, RoutedEventArgs e)
         {
-            channels.ElementAt(1).Stop();
-            channels.ElementAt(2).Stop();
-            channels.ElementAt(3).Stop();
             PowerButtonChecked(1, txtResult.Text);
         }
 
         private void btnBBCTwo_Click(object sender, RoutedEventArgs e)
         {
-            channels.ElementAt(0).Stop();
-            channels.ElementAt(2).Stop();
-            channels.ElementAt(3).Stop();
             PowerButtonChecked(2, txtResult.Text);
         }
 
         private void btnBBCThree_Click(object sender, RoutedEventArgs e)
         {
-            channels.ElementAt(0).Stop();
-            channels.ElementAt(1).Stop();
-            channels.ElementAt(3).Stop();
             PowerButtonChecked(3, txtResult.Text);
         }
 
         private void btnBBCFour_Click(object sender, RoutedEventArgs e)
         {
-            channels.ElementAt(0).Stop();
-            channels.ElementAt(1).Stop();
-            channels.ElementAt(2).Stop();
             PowerButtonChecked(4, txtResult.Text);
         }
 
         private void HandleCheck(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
+            if (rb.IsChecked == true)
+            {
+                foreach (var item in channels)
+                {
+                    item.Stop();
+                }
+            }
+            
+            
             
         }
 
@@ -83,6 +80,10 @@ namespace RadioApplication
         {
             if (ONButton.IsChecked == true)
             {
+                foreach (var item in channels)
+                {
+                    item.Pause();
+                }
                 radio.Channel = channelNum;
                 radio.TurnOn();
                 txtResult.Text = radio.Play();

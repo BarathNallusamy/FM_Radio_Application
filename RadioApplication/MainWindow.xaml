@@ -18,8 +18,23 @@
             <ColumnDefinition Width = "*" />
         </Grid.ColumnDefinitions>
 
-        <Label Content = "FM Radio" FontSize = "15" 
-         FontWeight = "Bold" Grid.Column = "0" Grid.Row = "0"/>
+        <DockPanel Background="LightBlue" >
+            <Label Content = "FM Radio" FontSize = "15" 
+             FontWeight = "Bold" Grid.Column = "0" Grid.Row = "0"/>
+            <TextBlock Name="txtResult"  
+                   Text="Status"  
+                   FontSize="10"  
+                   VerticalAlignment="Center"  
+                   HorizontalAlignment="Center"  
+                   Grid.Column = "0"/>
+        </DockPanel>
+
+        <StackPanel Background="Black" Margin="20,10,20,10" Grid.Column = "0" Grid.Row = "1">
+            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p" LoadedBehavior="Manual" Name="bbcOne" />
+            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p" LoadedBehavior="Manual" Name="bbcTwo" />
+            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p" LoadedBehavior="Manual" Name="bbcThree" />
+            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p" LoadedBehavior="Manual" Name="bbcFour" />
+        </StackPanel>
 
         <StackPanel Margin="10,0,10,0" Grid.Column = "0" Grid.Row = "2" Orientation = "Horizontal" Width="478">
             <Button Name="btnOne" Click="btnBBCOne_Click" Width="115" >BBC ONE</Button>
@@ -35,7 +50,7 @@
             <RadioButton x:Name="OFFButton" Margin="5" Checked="HandleCheck"
             GroupName="First Group" Content="Off" IsChecked="True"  />
         </StackPanel>
-        
-        
+
+
     </Grid>
 </Window>

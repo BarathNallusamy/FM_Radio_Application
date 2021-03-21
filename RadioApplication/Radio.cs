@@ -11,6 +11,7 @@ namespace RadioApplication
     {
         private int _channel = 1;
         private bool _on = false;
+        
 
         public int Channel
         {
@@ -58,6 +59,7 @@ namespace RadioApplication
             {
                 return $"Playing channel {_channel}";
             }
+            
 
         }
 

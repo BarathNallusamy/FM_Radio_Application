@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace RadioApplication
 {
@@ -21,82 +23,50 @@ namespace RadioApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ObservableCollection<Radio> radioChannels = new ObservableCollection<Radio>();
+        
+
+        private Queue<MediaElement> channels = new Queue<MediaElement>();
+
         private Radio radio = new Radio();
+
         public MainWindow()
         {
-            
 
             InitializeComponent();
 
-            radioChannels.Add(new Radio() { Channel = 1 });
-            radioChannels.Add(new Radio() { Channel = 2 });
-            radioChannels.Add(new Radio() { Channel = 3 });
-            radioChannels.Add(new Radio() { Channel = 4 });
-
+            channels.Enqueue(bbcOne);
+            channels.Enqueue(bbcTwo);
+            channels.Enqueue(bbcThree);
+            channels.Enqueue(bbcFour);
         }
 
         private void btnBBCOne_Click(object sender, RoutedEventArgs e)
         {
-            if(ONButton.IsChecked == true)
-            {
-                radio.Channel = 1;
-                radio.TurnOn();
-                MessageBox.Show(radio.Play());
-            }
-            else
-            {
-                radio.TurnOff();
-                MessageBox.Show(radio.Play());
-            }
-            
+            PowerButtonChecked(1, txtResult.Text);
+            channels.Peek().Stop();
+            bbcOne.Play();
+
         }
 
         private void btnBBCTwo_Click(object sender, RoutedEventArgs e)
         {
-            if (ONButton.IsChecked == true)
-            {
-                radio.Channel = 2;
-                radio.TurnOn();
-                
-                MessageBox.Show(radio.Play());
-
-            }
-            else
-            {
-                radio.TurnOff();
-                MessageBox.Show(radio.Play());
-            }
+            PowerButtonChecked(2, txtResult.Text);
+            channels.Peek().Stop();
+            bbcTwo.Play();
         }
 
         private void btnBBCThree_Click(object sender, RoutedEventArgs e)
         {
-            if (ONButton.IsChecked == true)
-            {
-                radio.Channel = 3;
-                radio.TurnOn();
-                MessageBox.Show(radio.Play());
-            }
-            else
-            {
-                radio.TurnOff();
-                MessageBox.Show(radio.Play());
-            }
+            PowerButtonChecked(3, txtResult.Text);
+            channels.Peek().Stop();
+            bbcThree.Play();
         }
 
         private void btnBBCFour_Click(object sender, RoutedEventArgs e)
         {
-            if (ONButton.IsChecked == true)
-            {
-                radio.Channel = 4;
-                radio.TurnOn();
-                MessageBox.Show(radio.Play());
-            }
-            else
-            {
-                radio.TurnOff();
-                MessageBox.Show(radio.Play());
-            }
+            PowerButtonChecked(4, txtResult.Text);
+            channels.Peek().Stop();
+            bbcFour.Play();
         }
 
         private void HandleCheck(object sender, RoutedEventArgs e)
@@ -104,6 +74,22 @@ namespace RadioApplication
             RadioButton rb = sender as RadioButton;
             
         }
+
+        public void PowerButtonChecked(int channelNum, string status)
+        {
+            if (ONButton.IsChecked == true)
+            {
+                radio.Channel = channelNum;
+                radio.TurnOn();
+                txtResult.Text = radio.Play();
+            }
+            else
+            {
+                radio.TurnOff();
+                txtResult.Text = radio.Play();
+            }
+        }
+
 
 
     }

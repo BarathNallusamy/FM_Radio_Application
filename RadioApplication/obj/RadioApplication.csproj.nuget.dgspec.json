@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\RadioApplication\\RadioApplication.csproj": {}
+    "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\Radio_Project\\RadioApplication\\RadioApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\RadioApplication\\RadioApplication.csproj": {
+    "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\Radio_Project\\RadioApplication\\RadioApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\RadioApplication\\RadioApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\Radio_Project\\RadioApplication\\RadioApplication.csproj",
         "projectName": "RadioApplication",
-        "projectPath": "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\RadioApplication\\RadioApplication.csproj",
+        "projectPath": "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\Radio_Project\\RadioApplication\\RadioApplication.csproj",
         "packagesPath": "C:\\Users\\Baratharun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\RadioApplication\\obj\\",
+        "outputPath": "C:\\Users\\Baratharun\\Visual C#\\Masterclass\\Radio_Project\\RadioApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

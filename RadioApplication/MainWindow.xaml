@@ -24,10 +24,11 @@
         </DockPanel>
 
         <StackPanel Background="Black" Margin="20,10,20,10" Grid.Column = "0" Grid.Row = "1">
-            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p" LoadedBehavior="Manual" Name="bbcOne" />
-            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p" LoadedBehavior="Manual" Name="bbcTwo" />
-            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_asianet_mf_p" LoadedBehavior="Manual" Name="bbcThree" />
-            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p" LoadedBehavior="Manual" Name="bbcFour" />
+            <MediaElement Source="http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one" LoadedBehavior="Manual" Name="bbcOne" 
+                          AutomationProperties.Name="FM_Radio_Volume" />
+            <MediaElement Source="http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one" LoadedBehavior="Manual" Name="bbcTwo" />
+            <MediaElement Source="http://stream.live.vc.bbcmedia.co.uk/bbc_radio_twohttp://stream.live.vc.bbcmedia.co.uk/bbc_radio_three" LoadedBehavior="Manual" Name="bbcThree" />
+            <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p" LoadedBehavior="Manual" Name="bbcFour" />
             <TextBlock x:Name="txtResult" Grid.Column = "0" Grid.Row = "1" Text="{Binding Title, UpdateSourceTrigger=Explicit}" Width="150" FontSize="15" FontStyle="Italic" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="White"/>
         </StackPanel>
 
@@ -62,7 +63,14 @@
                 </StackPanel>
             </StatusBarItem>
             <StatusBarItem Grid.Column="2">
-                <ProgressBar Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=bbcOne, Path=Volume}" />
+                <StackPanel>
+                    <TextBlock Name="VolumeLabel" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right">Volume</TextBlock>
+                    <Slider Height="50"
+                    Value="{Binding Volume, Mode=TwoWay, ElementName=bbcOne}"
+                    Minimum="0" Maximum="1"
+                    Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                    AutomationProperties.LabeledBy="{Binding ElementName=VolumeLabel}"/>
+                </StackPanel>
             </StatusBarItem>
         </StatusBar>
 

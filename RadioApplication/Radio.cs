@@ -19,9 +19,11 @@ namespace RadioApplication
             {
                 if (_channel < 1 && _channel > 4)
                 {
-                    return _channel = 1;
+                    return _channel;
                 }
+                this.NotifyPropertyChanged(_channel);
                 return this._channel;
+
             }
             set
             {
@@ -65,6 +67,7 @@ namespace RadioApplication
 
         public void TurnOff()
         {
+            
             _on = false;
         }
 

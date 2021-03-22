@@ -21,8 +21,6 @@
         <DockPanel Background="LightBlue" >
             <Label Content = "FM Radio" FontSize = "15" 
              FontWeight = "Bold" Grid.Column = "0" Grid.Row = "0"/>
-            <TextBlock Name="txtResult" Text="{Binding Title, UpdateSourceTrigger=Explicit}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontStyle="Italic" >
-            </TextBlock>
         </DockPanel>
 
         <StackPanel Background="Black" Margin="20,10,20,10" Grid.Column = "0" Grid.Row = "1">
@@ -30,6 +28,7 @@
             <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p" LoadedBehavior="Manual" Name="bbcTwo" />
             <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_asianet_mf_p" LoadedBehavior="Manual" Name="bbcThree" />
             <MediaElement Source="http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p" LoadedBehavior="Manual" Name="bbcFour" />
+            <TextBlock x:Name="txtResult" Grid.Column = "0" Grid.Row = "1" Text="{Binding Title, UpdateSourceTrigger=Explicit}" Width="150" FontSize="15" FontStyle="Italic" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="White"/>
         </StackPanel>
 
         <StackPanel Margin="10,0,10,0" Grid.Column = "0" Grid.Row = "2" Orientation = "Horizontal" Width="478">
@@ -39,13 +38,33 @@
             <Button Name="btnFour" Click="btnBBCFour_Click" Width="115">BBC FOUR</Button>
         </StackPanel>
 
-        <StackPanel  Margin="10,0,10,0" Grid.Column = "0" Grid.Row = "3" Orientation = "Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <TextBlock Text="Power:"  Margin="5" />
-            <RadioButton x:Name="ONButton" Margin="5"
+
+        
+
+        <StatusBar Grid.Row="3">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <StackPanel  Margin="10,0,10,0" Grid.Row = "4" Orientation = "Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <TextBlock Text="Power:"  Margin="5" />
+                    <RadioButton x:Name="ONButton" Margin="5"
             GroupName="First Group" Content="On" />
-            <RadioButton x:Name="OFFButton" Margin="5" Checked="HandleCheck"
+                    <RadioButton x:Name="OFFButton" Margin="5" Checked="HandleCheck"
             GroupName="First Group" Content="Off" IsChecked="True"  />
-        </StackPanel>
+                </StackPanel>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2">
+                <ProgressBar Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=bbcOne, Path=Volume}" />
+            </StatusBarItem>
+        </StatusBar>
 
 
     </Grid>

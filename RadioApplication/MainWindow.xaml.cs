@@ -96,6 +96,13 @@ namespace RadioApplication
             }
         }
 
+        private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            
+             bbcOne.Volume += (e.Delta > 0) ? 0.1 : -0.1;
+            
+            
+        }
 
 
     }
